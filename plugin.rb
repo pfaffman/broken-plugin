@@ -49,7 +49,7 @@ after_initialize do
       # from https://support.thinkific.com/hc/en-us/articles/360030718713-SSO-Automatically-Sign-in-From-Your-Own-Website?source=search
       iat = Time.now.to_i
       jti = "#{iat}/#{SecureRandom.hex(18)}"
-      if user.name.length>0
+      if user.name
         first_name = user.name.split(' ').first
         last_name = user.name.split(' ').last
         puts "Got names! #{first_name} --- #{last_name}"
