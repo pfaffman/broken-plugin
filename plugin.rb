@@ -70,6 +70,7 @@ after_initialize do
     end
 
     def generate_url(url, params = {})
+      puts "\n\n\nGenerate URL: #{url}\n\n\n"
       uri = URI(url)
       uri.query = params.to_query
       uri.to_s
