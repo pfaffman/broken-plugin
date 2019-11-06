@@ -44,6 +44,8 @@ after_initialize do
 
     def sign_into_thinkific(user)
       puts "\n\n\nreally Signing IN!!!\n\n\n"
+      puts "\n\n\nID #{user.id} IN!!!\n\n\n"
+      puts "\n\n\nNAME#{user.name} IN!!!\n\n\n"
       # from https://support.thinkific.com/hc/en-us/articles/360030718713-SSO-Automatically-Sign-in-From-Your-Own-Website?source=search
       iat = Time.now.to_i
       jti = "#{iat}/#{SecureRandom.hex(18)}"
