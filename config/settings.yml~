@@ -1,0 +1,10 @@
+plugins:
+  thinkific_enabled:
+    default: true
+    client: true
+  thinkific_api_key:
+    client: true
+  thinkific_return_url:
+    client: true
+  thinkific_error_url:
+    client: true

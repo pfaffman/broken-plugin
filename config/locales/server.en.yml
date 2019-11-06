@@ -1,0 +1,8 @@
+en:
+  site_settings:
+    discourse_thinkific_enabled: "Enable DiscourseThinkific plugin"
+    thinkific_enabled: "DO it?"
+    thinkific_api_key: "the key"
+    thinkific_return_url: "return url"
+    thinkific_error_url: "error url"
+    thinkific_site_url: "WHere is the site?"
