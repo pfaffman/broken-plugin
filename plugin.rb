@@ -68,9 +68,10 @@ after_initialize do
     end
 
     def thinkific_sso_url(payload)
+      current_url="https://#{GlobalSetting.hostname}/"
       url = "#{SiteSetting.thinkific_site_url}api/sso/v2/sso/jwt?jwt=#{payload}"
 #      url += "&return_to=#{URI.escape(params["return_to"])}" if SiteSetting.thinkific_return_url.present?
-      url += "&return_to=#{URI.escape("http://localhost:3000/")}" if true
+      url += "&return_to=#{URI.escape(current_url)}" if true
       url += "&error_url=#{URI.escape(params["error_url"])}" if SiteSetting.thinkific_error_url.present?
 
       puts "HERE IS URL: #{url}"
