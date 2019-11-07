@@ -66,7 +66,7 @@ after_initialize do
                            }, SiteSetting.thinkific_api_key)
       puts "Signing in payload!!! #{payload}"
 
-      redirect_to generate_url(thinkific_sso_url(payload))
+      redirect_to thinkific_sso_url(payload)
     end
 
     def generate_url(url, params = {})
