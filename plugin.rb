@@ -83,7 +83,7 @@ after_initialize do
       url += "&return_to=#{URI.escape(current_url)}" if true
       url += "&error_url=#{URI.escape(params["error_url"])}" if SiteSetting.thinkific_error_url.present?
 
-      puts "HERE IS THE URL: #{url}"
+      Rails.logger.info "HERE IS THE URL: #{url}"
 
       url
     end
