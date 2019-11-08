@@ -54,8 +54,8 @@ after_initialize do
         last_name = user.name.split(' ').last
         puts "Got names! #{first_name} --- #{last_name}"
       else
-        first_name = 'missing first name'
-        last_name = 'missing last name'
+        first_name = user.username
+        last_name = user.username
       end
       payload = JWT.encode({
                              :iat   => iat,
@@ -66,7 +66,7 @@ after_initialize do
                            }, SiteSetting.thinkific_api_key)
       puts "Signing in payload!!! #{payload}"
 
-      redirect_to thinkific_sso_url(payload)
+      return redirect_to thinkific_sso_url(payload)
     end
 
     def generate_url(url, params = {})
@@ -87,8 +87,6 @@ after_initialize do
 
       url
     end
-
-
 
   end
 
