@@ -66,7 +66,7 @@ after_initialize do
                            }, SiteSetting.thinkific_api_key)
       puts "Signing in payload!!! #{payload}"
 
-      return redirect_to thinkific_sso_url(payload) status: 303
+      return redirect_with_client_support thinkific_sso_url(payload)
     end
 
     def generate_url(url, params = {})
@@ -77,7 +77,7 @@ after_initialize do
     end
 
     def thinkific_sso_url(payload)
-      current_url="https://#{GlobalSetting.hostname}/"
+      current_url=Discourse.base_url
       url = "https://#{SiteSetting.thinkific_site_url}/api/sso/v2/sso/jwt?jwt=#{payload}"
 #      url += "&return_to=#{URI.escape(params["return_to"])}" if SiteSetting.thinkific_return_url.present?
       url += "&return_to=#{URI.escape(current_url)}" if true
