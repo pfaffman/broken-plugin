@@ -68,11 +68,11 @@ after_initialize do
 
 
       url = thinkific_sso_url(payload)
-      redirect_location = "<!DOCTYPE html><html><head><meta http-equiv=\"Refresh\" content = \"5; url='#{url}'\" /></head><body>This is my body</body></html>"
-      Rails.logger.info "REDIRECTING... #{redirect_location}"
+      redirect_location = "<!DOCTYPE html><html><head><meta http-equiv=\"Refresh\" content = \"50; URL='#{url}'\" /></head><body>This is my body</body></html>"
+      Rails.logger.info "...REDIRECTING... #{redirect_location}"
 
-      render plain: redirect_location
-      # return redirect_to thinkific_sso_url(payload), status: 303
+      #render plain: redirect_location
+      return redirect_to thinkific_sso_url(payload), status: 303
     end
 
     def generate_url(url, params = {})
@@ -84,7 +84,7 @@ after_initialize do
 
     def thinkific_sso_url(payload)
       current_url=Discourse.base_url
-      url = "https://#{SiteSetting.thinkific_site_url}/api/sso/v2/sso/jwt?jwt=#{payload}"
+      url = "#{SiteSetting.thinkific_site_url}api/sso/v2/sso/jwt?jwt=#{payload}"
 #      url += "&return_to=#{URI.escape(params["return_to"])}" if SiteSetting.thinkific_return_url.present?
       url += "&return_to=#{URI.escape(current_url)}" if true
       url += "&error_url=#{URI.escape(params["error_url"])}" if SiteSetting.thinkific_error_url.present?
