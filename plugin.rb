@@ -67,7 +67,7 @@ after_initialize do
       puts "Signing in payload!!! #{payload}"
 
 
-      render inline: "<meta http-equiv="Refresh" content="0; url=<% thinkific_sso_url(payload) %>" />"
+      render inline: '<meta http-equiv="Refresh" content="0; url="<% thinkific_sso_url(payload) %>" />'
       # return redirect_to thinkific_sso_url(payload), status: 303
     end
 
