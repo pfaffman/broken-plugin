@@ -71,7 +71,7 @@ after_initialize do
       redirect_location = "<!DOCTYPE html><html><head><meta http-equiv=\"Refresh\" content = \"5; url='#{url}'\" /></head><body>This is my body</body></html>"
       Rails.logger.info "REDIRECTING... #{redirect_location}"
 
-      render inline: redirect_location
+      render plain: redirect_location
       # return redirect_to thinkific_sso_url(payload), status: 303
     end
 
